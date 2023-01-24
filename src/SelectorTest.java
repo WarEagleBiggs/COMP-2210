@@ -24,8 +24,8 @@ class SelectorTest {
     @Test
     void kmin() {
         int[] a = {1,1,4,3,6,8,2};
-        int k = 3;
-        int expected = 3;
+        int k = 2;
+        int expected = 2;
         int actual = Selector.kmin(a, k);
         assertEquals(expected, actual);
         System.out.println(actual);
@@ -33,6 +33,12 @@ class SelectorTest {
 
     @Test
     void kmax() {
+        int[] a = {1,1,4,3,6,8,2};
+        int k = 3;
+        int expected = 4;
+        int actual = Selector.kmax(a, k);
+        assertEquals(expected, actual);
+        System.out.println(actual);
     }
 
     @Test

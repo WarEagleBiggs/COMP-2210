@@ -104,7 +104,25 @@ public final class Selector {
      * changed by this method.
      */
     public static int kmax(int[] a, int k) {
-        return -99;
+
+        //error message
+        if(a == null || k > a.length || k < 1){
+            //throw
+            throw new IllegalArgumentException("Array is null");
+        }
+
+        //copy of 'a' to modify
+        int[] b = a.clone();
+
+        //sort copy via TreeSet
+        TreeSet<Integer> c = new TreeSet<Integer>();
+        for (int i : b) {
+            c.add(i);
+        }
+
+
+        //return
+        return c.toArray(new Integer[0]).length-k+1;
     }
 
 
