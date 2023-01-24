@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.TreeSet;
 
 /**
  * Defines a library of selection methods
@@ -82,16 +83,15 @@ public final class Selector {
         //copy of 'a' to modify
         int[] b = a.clone();
 
-        //sort copy
-        Arrays.sort(b);
-
-        int count = 1;
-
-        
+        //sort copy via TreeSet
+        TreeSet<Integer> c = new TreeSet<Integer>();
+        for (int i : b) {
+            c.add(i);
+        }
 
 
         //return
-        return b[k-1];
+        return c.toArray(new Integer[0])[k-1];
     }
 
 
