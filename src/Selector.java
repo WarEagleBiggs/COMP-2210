@@ -125,6 +125,21 @@ public final class Selector {
             c.add(i);
         }
 
+        if(c.size() < k){
+            //throw
+            throw new IllegalArgumentException("All same");
+        }
+
+        int cSize = c.size();
+
+        int iter = 1;
+        for(int i: c.descendingSet()) {
+            if (iter == k){
+                return i;
+            }
+            iter++;
+        }
+
 
         //return
         return c.toArray(new Integer[0]).length-k+1;
