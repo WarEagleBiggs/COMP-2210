@@ -89,6 +89,11 @@ public final class Selector {
             c.add(i);
         }
 
+        if(c.size() < k){
+            //throw
+            throw new IllegalArgumentException("All same");
+        }
+
 
         //return
         return c.toArray(new Integer[0])[k-1];
