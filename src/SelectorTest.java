@@ -43,6 +43,13 @@ class SelectorTest {
 
     @Test
     void range() {
+        int[] a = {8, 2, 8, 7, 3, 3, 4};
+        int low = 3;
+        int high = 7;
+        int[] expected = {7,3,3,4};
+        int[] actual = Selector.range(a, low, high);
+        assertArrayEquals(expected, actual);
+        System.out.println(actual);
     }
 
     @Test
