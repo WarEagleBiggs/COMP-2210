@@ -54,9 +54,23 @@ class SelectorTest {
 
     @Test
     void ceiling() {
+        int[] a = {2,8,7,3,4};
+        int key = 1;
+        int expected = 2;
+        int actual = Selector.ceiling(a, key);
+        assertEquals(expected, actual);
+        System.out.println(actual);
+
     }
 
     @Test
     void floor() {
+        int[] a = {2,8,7,3,4};
+        int key = 6;
+        int expected = 4;
+        int actual = Selector.floor(a, key);
+        assertEquals(expected, actual);
+        System.out.println(actual);
+
     }
 }

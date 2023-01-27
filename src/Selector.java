@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.TreeSet;
 
 /**
@@ -202,13 +202,31 @@ public final class Selector {
      */
     public static int ceiling(int[] a, int key) {
 
-        for (int i: a) {
-            if (i >= key){
+        //error message
+        if(a == null || a.length == 0){
+            //throw
+            throw new IllegalArgumentException("Array is null");
+        }
 
+        //loc vars
+        int ceiling = a[0];
+
+        //foreach
+        for (int i: a) {
+            //check if i is >= key && i < current ceiling
+            if (i >= key && i < ceiling){
+                ceiling = i;
             }
         }
 
-        return -99;
+        //throw
+        if (ceiling < key) {
+            throw new IllegalArgumentException("Fail");
+        }
+
+        //return
+        return ceiling;
+
     }
 
 
@@ -222,8 +240,31 @@ public final class Selector {
     public static int floor(int[] a, int key) {
 
 
+        //error message
+        if(a == null || a.length == 0){
+            //throw
+            throw new IllegalArgumentException("Array is null");
+        }
 
-        return -99;
+        //loc vars
+        int floor = a[0];
+
+        //foreach
+        for (int i: a) {
+            //check if i is <= key && i > current ceiling
+            if (i <= key && i < floor){
+                floor = i;
+            }
+        }
+
+        //throw
+        if (floor < key) {
+            throw new IllegalArgumentException("Fail");
+        }
+
+        //return
+        return floor;
+
     }
 
 }
