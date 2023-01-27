@@ -252,13 +252,13 @@ public final class Selector {
         //foreach
         for (int i: a) {
             //check if i is <= key && i > current ceiling
-            if (i <= key && i < floor){
+            if (i <= key && i >= floor){
                 floor = i;
             }
         }
 
         //throw
-        if (floor < key) {
+        if (floor > key && floor == a[0]) {
             throw new IllegalArgumentException("Fail");
         }
 
