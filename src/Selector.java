@@ -208,20 +208,21 @@ public final class Selector {
             throw new IllegalArgumentException("Array is null");
         }
 
-        //loc vars
-        int ceiling = a[0];
+        //var
+        int ceiling = Integer.MAX_VALUE;
 
         //foreach
-        for (int i: a) {
-            //check if i is >= key && i < current ceiling
-            if (i >= key && i < ceiling){
+        for (int i : a) {
+
+            if (i >= key && i < ceiling) {
                 ceiling = i;
+
             }
         }
 
-        //throw
-        if (ceiling < key) {
-            throw new IllegalArgumentException("Fail");
+        if (ceiling == Integer.MAX_VALUE) {
+
+            throw new IllegalArgumentException("Too big");
         }
 
         //return
@@ -239,27 +240,27 @@ public final class Selector {
      */
     public static int floor(int[] a, int key) {
 
-
         //error message
         if(a == null || a.length == 0){
+
             //throw
             throw new IllegalArgumentException("Array is null");
         }
 
-        //loc vars
-        int floor = a[0];
+        //var - use absolute lowest
+        int floor = Integer.MIN_VALUE;
 
         //foreach
-        for (int i: a) {
-            //check if i is <= key && i > current ceiling
-            if (i <= key && i >= floor){
+        for (int i : a) {
+            if (i <= key && i > floor) {
                 floor = i;
+
             }
         }
 
-        //throw
-        if (floor > key && floor == a[0]) {
-            throw new IllegalArgumentException("Fail");
+        if (floor == Integer.MIN_VALUE) {
+
+            throw new IllegalArgumentException("Too low");
         }
 
         //return
