@@ -160,12 +160,36 @@ public final class Selector {
      */
     public static int[] range(int[] a, int low, int high) {
 
-        for (int i:a) {
+        //error message
+        if(a == null || a.length == 0){
+            //throw
+            throw new IllegalArgumentException("Array is null");
+        }
+
+        int iter = 0;
+
+        //foreach iter and ensure is in bounds
+        for(int i : a) {
+
+            if(i >= low && i <= high) {
+                iter++;
+            }
 
         }
 
-        return null;
-        //test
+        int[] result = new int[iter];
+
+        int temp = 0;
+
+        //foreach iter and ensure is in bounds and add to new array
+        for(int i : a) {
+            if(i >= low && i <= high) {
+
+                result[temp++] = i;
+            }
+        }
+        //return
+        return result;
     }
 
 
@@ -177,6 +201,13 @@ public final class Selector {
      * The array a is not changed by this method.
      */
     public static int ceiling(int[] a, int key) {
+
+        for (int i: a) {
+            if (i >= key){
+
+            }
+        }
+
         return -99;
     }
 
@@ -189,6 +220,9 @@ public final class Selector {
      * The array a is not changed by this method.
      */
     public static int floor(int[] a, int key) {
+
+
+
         return -99;
     }
 
