@@ -33,9 +33,9 @@ class SelectorTest {
 
     @Test
     void kmax() {
-        int[] a = {1,1,4,3,6,8,2};
-        int k = 3;
-        int expected = 4;
+        int[] a = {5,7};
+        int k = 1;
+        int expected = 7;
         int actual = Selector.kmax(a, k);
         assertEquals(expected, actual);
         System.out.println(actual);

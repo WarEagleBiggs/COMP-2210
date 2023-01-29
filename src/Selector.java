@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.TreeSet;
+import java.util.Arrays;
 
 /**
  * Defines a library of selection methods
@@ -80,23 +79,22 @@ public final class Selector {
             throw new IllegalArgumentException("Array is null");
         }
 
-        //copy of 'a' to modify
+        //make copy
         int[] b = a.clone();
 
-        //sort copy via TreeSet
-        TreeSet<Integer> c = new TreeSet<Integer>();
-        for (int i : b) {
-            c.add(i);
-        }
+        //sort
+        Arrays.sort(b);
 
-        if(c.size() < k){
-            //throw
-            throw new IllegalArgumentException("All same");
-        }
+        //dups
+        int[] unique = Arrays.stream(b).distinct().toArray();
 
+        //throw
+        if (k < 1 || k > unique.length) {
+            throw new IllegalArgumentException("fail");
+        }
 
         //return
-        return c.toArray(new Integer[0])[k-1];
+        return unique[k - 1];
     }
 
 
@@ -111,39 +109,49 @@ public final class Selector {
     public static int kmax(int[] a, int k) {
 
         //error message
-        if(a == null || k > a.length || k < 1){
+        if (a == null || k > a.length || k < 1) {
             //throw
             throw new IllegalArgumentException("Array is null");
         }
 
-        //copy of 'a' to modify
+        //make copy
         int[] b = a.clone();
 
-        //sort copy via TreeSet
-        TreeSet<Integer> c = new TreeSet<Integer>();
-        for (int i : b) {
-            c.add(i);
-        }
+        //sort
+        Arrays.sort(b);
 
-        if(c.size() < k){
-            //throw
-            throw new IllegalArgumentException("All same");
-        }
+        //iter var
+        int count = 1;
 
-        int cSize = c.size();
+        if (k >= 2) {
+            //iter
+            for (int i = b.length - 2; i >= 0; i--) {
 
-        int iter = 1;
-        for(int i: c.descendingSet()) {
-            if (iter == k){
-                return i;
+                if (b[i] != b[i + 1]) {
+
+                    count++;
+                }
+                if (count == k) {
+                    //return
+                    return b[i];
+                }
             }
-            iter++;
+        } else {
+
+            int max = b[0];
+
+            for (int i :b) {
+                if (i >= max){
+                    max = i;
+                }
+            }
+            return max;
+
         }
-
-
-        //return
-        return c.toArray(new Integer[0]).length-k+1;
+        //throw
+        throw new IllegalArgumentException("fail");
     }
+
 
 
     /**
