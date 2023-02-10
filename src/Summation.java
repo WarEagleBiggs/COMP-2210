@@ -7,11 +7,13 @@ public class Summation {
 
 	/** Returns the sum of 1..n for n > 0. */
 	public static int sumI(int n) {
-		int sum = 1;
-		for (int i = 2; i <= n; i++) {
-			sum = sum + i;
+
+		if (n == 1){
+			return 1;
+
 		}
-		return sum;
+
+		return  n * sumI(n-1);
 	}
 
 	/** Returns the sum of 1..n  */
