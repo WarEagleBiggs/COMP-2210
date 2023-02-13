@@ -7,18 +7,21 @@ public class Summation {
 
 	/** Returns the sum of 1..n for n > 0. */
 	public static int sumI(int n) {
-
-		if (n == 1){
-			return 1;
-
+		int sum = 1;
+		for (int i = 2; i <= n; i++) {
+			sum = sum + i;
 		}
-
-		return  n * sumI(n-1);
+		return sum;
 	}
 
 	/** Returns the sum of 1..n  */
 	public static int sumR(int n) {
-		return 0;
+
+		if(n == 1){
+			return 1;
+		}
+
+		return n * sumR(n - 1);
 	}
 
 	/** Drives execution. */
