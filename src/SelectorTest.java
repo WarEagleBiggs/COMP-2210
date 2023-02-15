@@ -1,29 +1,30 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SelectorTest {
 
     @Test
     void min() {
-        int[] a = {1,4,3,6,8,2};
+        int[] a = {1, 4, 3, 6, 8, 2};
         int expected = 1;
         int actual = Selector.min(a);
-        assertEquals(expected, actual );
+        assertEquals(expected, actual);
     }
 
     @Test
     void max() {
-        int[] a = {1,4,3,6,8,2};
+        int[] a = {1, 4, 3, 6, 8, 2};
         int expected = 8;
         int actual = Selector.max(a);
-        assertEquals(expected, actual );
+        assertEquals(expected, actual);
 
     }
 
     @Test
     void kmin() {
-        int[] a = {1,1,4,3,6,8,2};
+        int[] a = {1, 1, 4, 3, 6, 8, 2};
         int k = 2;
         int expected = 2;
         int actual = Selector.kmin(a, k);
@@ -33,7 +34,7 @@ class SelectorTest {
 
     @Test
     void kmax() {
-        int[] a = {5,7};
+        int[] a = {5, 7};
         int k = 1;
         int expected = 7;
         int actual = Selector.kmax(a, k);
@@ -46,7 +47,7 @@ class SelectorTest {
         int[] a = {8, 2, 8, 7, 3, 3, 4};
         int low = 3;
         int high = 7;
-        int[] expected = {7,3,3,4};
+        int[] expected = {7, 3, 3, 4};
         int[] actual = Selector.range(a, low, high);
         assertArrayEquals(expected, actual);
         System.out.println(actual);

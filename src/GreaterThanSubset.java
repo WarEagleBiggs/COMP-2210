@@ -1,11 +1,9 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 
 /**
  * Return the elements in a collection that are strictly greater than a specified
  * value.
- *
  */
 public class GreaterThanSubset {
 
@@ -14,12 +12,12 @@ public class GreaterThanSubset {
     /**
      * Returns the elements in collection strictly greater than value.
      */
-    public static <T extends Comparable<T>> 
-            Collection<T> greaterThanSubset(Collection<T> collection, T value) {
+    public static <T extends Comparable<T>>
+    Collection<T> greaterThanSubset(Collection<T> collection, T value) {
         ArrayList<T> result = new ArrayList<>();
 
-        for (T i: collection) {
-            if (i.compareTo(value) > 0){
+        for (T i : collection) {
+            if (i.compareTo(value) > 0) {
                 result.add(i);
             }
         }

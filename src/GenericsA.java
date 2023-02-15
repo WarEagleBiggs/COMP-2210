@@ -18,13 +18,14 @@ public class GenericsA {
         }
         if (i < a.length) {
             return i;
-        }
-        else {
+        } else {
             return -1;
         }
     }
 
-  /** Drives execution. */
+    /**
+     * Drives execution.
+     */
     public static void main(String[] args) {
         // You'll need to change these statements once
         // you make the search method generic.

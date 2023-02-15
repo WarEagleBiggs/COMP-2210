@@ -11,7 +11,9 @@ public class TimingCode {
     // 1.0E9 ns per second
     private static final double SECONDS = 1_000_000_000d;
 
-    /** Drives execution. */
+    /**
+     * Drives execution.
+     */
     public static void main(String[] args) {
         long start;
         long elapsedTime;

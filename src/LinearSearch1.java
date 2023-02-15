@@ -10,9 +10,9 @@ public final class LinearSearch1 {
      * -1 if target is not present. This method implements the
      * linear search algorithm.
      *
-     * @param   a  the array to be searched through
-     * @param   target  the value to be searched for
-     * @return  the index target in a or -1
+     * @param a      the array to be searched through
+     * @param target the value to be searched for
+     * @return the index target in a or -1
      */
     public static int search(int[] a, int target) {
         int i = 0;
@@ -23,8 +23,7 @@ public final class LinearSearch1 {
             System.out.println(i);
             return i;
 
-        }
-        else {
+        } else {
             return -1;
         }
     }

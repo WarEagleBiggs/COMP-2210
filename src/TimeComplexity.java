@@ -2,7 +2,6 @@
  * TimeComplexity.java
  * Illustrates basic approach to characterizing a method's
  * time complexity.
- *
  */
 public class TimeComplexity {
 
@@ -12,7 +11,9 @@ public class TimeComplexity {
     // 1.0E9 ns per second
     private static final double SECONDS = 1_000_000_000d;
 
-    /** Drives execution. */
+    /**
+     * Drives execution.
+     */
     public static void main(String[] args) {
         long start;
         long elapsedTime;
@@ -29,7 +30,9 @@ public class TimeComplexity {
     }
 
 
-    /** Method to be timed. */
+    /**
+     * Method to be timed.
+     */
     private static void methodToTime(int n) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {

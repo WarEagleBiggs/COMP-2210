@@ -5,12 +5,12 @@
  */
 public class GenericsB {
 
-     /**
-      * Make this method generic and type safe. Use a
-      * type variable named T that will allow you to
-      * find the minimum element of an array of any
-      * type of mutually-comparable values.
-      */
+    /**
+     * Make this method generic and type safe. Use a
+     * type variable named T that will allow you to
+     * find the minimum element of an array of any
+     * type of mutually-comparable values.
+     */
     public static <T extends Comparable<T>> T min(T[] a) {
         T min = a[0];
         for (T val : a) {
@@ -21,7 +21,9 @@ public class GenericsB {
         return min;
     }
 
-  /** Drives execution. */
+    /**
+     * Drives execution.
+     */
     public static void main(String[] args) {
         Integer[] a2 = {4, 10, 2, 8, 6};
         String[] a3 = {"red", "orange", "yellow", "green", "blue", "indigo", "violet"};

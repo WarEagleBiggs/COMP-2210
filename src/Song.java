@@ -1,6 +1,5 @@
 /**
  * Models a musical song.
- *
  */
 public class Song implements Comparable<Song> {
 
@@ -16,7 +15,9 @@ public class Song implements Comparable<Song> {
     // running time in seconds
     int duration;
 
-    /** Creates a new Song instance. */
+    /**
+     * Creates a new Song instance.
+     */
     public Song(String theTitle, String theArtist, int theYear, int theDuration) {
         title = theTitle;
         artist = theArtist;
@@ -24,42 +25,56 @@ public class Song implements Comparable<Song> {
         duration = theDuration;
     }
 
-    /** Returns the title of this Song. */
+    /**
+     * Returns the title of this Song.
+     */
     public String getTitle() {
         return title;
     }
 
-    /** Returns the recording artist for this Song. */
+    /**
+     * Returns the recording artist for this Song.
+     */
     public String getArtist() {
         return artist;
     }
 
-    /** Returns the year this Song was recorded. */
+    /**
+     * Returns the year this Song was recorded.
+     */
     public int getYear() {
         return year;
     }
 
-    /** Returns the duration of this Song in seconds. */
+    /**
+     * Returns the duration of this Song in seconds.
+     */
     public int getDuration() {
         return duration;
     }
 
-    /** Plays this Song. */
+    /**
+     * Plays this Song.
+     */
     public void play() {
         System.out.println(this);
     }
 
-    /** Compare this Song with the parameter for order. */
+    /**
+     * Compare this Song with the parameter for order.
+     */
     @Override
     public int compareTo(Song other) {
         int cmp = this.title.compareTo(other.title);
-        if (cmp == 0){
+        if (cmp == 0) {
             cmp = this.artist.compareTo(other.artist);
         }
         return cmp;
     }
 
-    /** Compares this Song with the parameter for equality. */
+    /**
+     * Compares this Song with the parameter for equality.
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -68,20 +83,21 @@ public class Song implements Comparable<Song> {
         if (obj == null) {
             return false;
         }
-        if (!(obj instanceof Song)) {
+        if (!(obj instanceof Song other)) {
             return false;
         }
-        Song other = (Song) obj;
         return this.title.equals(other.title) &&
-            this.artist.equals(other.artist);
+                this.artist.equals(other.artist);
     }
 
-    /** Returns a string representation of this Song. */
+    /**
+     * Returns a string representation of this Song.
+     */
     @Override
     public String toString() {
         return "'" + title + "'"
-            + ", " + artist + ", "
-            + "(" + year + ")";
+                + ", " + artist + ", "
+                + "(" + year + ")";
     }
 
 }

@@ -10,24 +10,32 @@ public class Student implements Comparable<Student> {
     private final String lname;
     private final int section;
 
-    /** Creates a new student. */
+    /**
+     * Creates a new student.
+     */
     public Student(String last, String first, int sec) {
         lname = last;
         fname = first;
         section = sec;
     }
 
-    /** Returns this student's first name. */
+    /**
+     * Returns this student's first name.
+     */
     public String getFirstName() {
         return fname;
     }
 
-    /** Returns this student's last name. */
+    /**
+     * Returns this student's last name.
+     */
     public String getLastName() {
         return lname;
     }
 
-    /** Returns this student's section. */
+    /**
+     * Returns this student's section.
+     */
     public int getSection() {
         return section;
     }
@@ -44,16 +52,18 @@ public class Student implements Comparable<Student> {
             //throw
             throw new IllegalArgumentException("Student is null");
         }
-        if(lname.compareTo(s.lname) != 0){
+        if (lname.compareTo(s.lname) != 0) {
             return lname.compareTo(s.lname);
         }
-        if(fname.compareTo(s.fname) != 0){
+        if (fname.compareTo(s.fname) != 0) {
             return fname.compareTo(s.fname);
         }
         return Integer.compare(section, s.section);
     }
 
-    /** Returns a string representation of this student. */
+    /**
+     * Returns a string representation of this student.
+     */
     @Override
     public String toString() {
         return section + ", " + lname + ", " + fname;

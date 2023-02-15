@@ -1,6 +1,5 @@
 /**
  * Count the number of odd values in an array.
- *
  */
 public class CountOdds {
 
@@ -13,15 +12,15 @@ public class CountOdds {
 
         int numOfOdds = 0;
 
-        for (int i: values) {
-            if(i % 2 != 0){
+        for (int i : values) {
+            if (i % 2 != 0) {
                 numOfOdds++;
             }
 
         }
-        
+
         return numOfOdds;
-   }
+    }
 
 }
 

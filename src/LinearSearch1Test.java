@@ -1,6 +1,6 @@
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * LinearSearch1Test.java
@@ -8,7 +8,9 @@ import org.junit.Test;
  */
 public class LinearSearch1Test {
 
-    /** Test case for the search method. */
+    /**
+     * Test case for the search method.
+     */
     @Test
     public void testSearch1() {
         int[] a = {2, 4, 6, 8, 10};
@@ -18,7 +20,9 @@ public class LinearSearch1Test {
         assertEquals(expected, actual);
     }
 
-    /** Test case for the search method. */
+    /**
+     * Test case for the search method.
+     */
     @Test
     public void testSearch2() {
         int[] a = {2, 4, 6, 8, 10};
@@ -28,7 +32,9 @@ public class LinearSearch1Test {
         assertEquals(expected, actual);
     }
 
-    /** Test case for the search method. */
+    /**
+     * Test case for the search method.
+     */
     @Test
     public void testSearch3() {
         int[] a = {2, 4, 6, 8, 10};

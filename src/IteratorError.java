@@ -18,7 +18,7 @@ public class IteratorError {
 
         while ((itr.hasNext())) {
             T temp = itr.next();
-            if(temp.equals(target)){
+            if (temp.equals(target)) {
                 return i;
             }
             i++;
@@ -26,7 +26,9 @@ public class IteratorError {
         return -1;
     }
 
-    /** Drives execution. */
+    /**
+     * Drives execution.
+     */
     public static void main(String[] args) {
         List<Integer> ilist = new ArrayList<Integer>();
         ilist.add(2);
@@ -35,9 +37,9 @@ public class IteratorError {
         ilist.add(8);
         ilist.add(10);
 
-        int loc = IteratorError.<Integer>search(ilist, 8);
+        int loc = IteratorError.search(ilist, 8);
         System.out.println(loc);
-        loc = IteratorError.<Integer>search(ilist, 5);
+        loc = IteratorError.search(ilist, 5);
         System.out.println(loc);
     }
 

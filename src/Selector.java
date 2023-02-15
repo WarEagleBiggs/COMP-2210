@@ -4,18 +4,17 @@ import java.util.Arrays;
  * Defines a library of selection methods
  * on arrays of ints.
  *
- * @author   Adam Biggs (ajb0217@auburn.edu)
- * @version  1/17/23
- *
+ * @author Adam Biggs (ajb0217@auburn.edu)
+ * @version 1/17/23
  */
 public final class Selector {
 
     /**
      * Can't instantiate this class.
      * D O   N O T   C H A N G E   T H I S   C O N S T R U C T O R
-     *
      */
-    private Selector() { }
+    private Selector() {
+    }
 
 
     /**
@@ -25,15 +24,15 @@ public final class Selector {
      */
     public static int min(int[] a) {
 
-        if(a == null || a.length == 0){
+        if (a == null || a.length == 0) {
             //throw
             throw new IllegalArgumentException("Array is null");
         }
 
         int min = a[0];
 
-        for (int i :a) {
-            if (i <= min){
+        for (int i : a) {
+            if (i <= min) {
                 min = i;
             }
         }
@@ -47,15 +46,15 @@ public final class Selector {
      * length. The array a is not changed by this method.
      */
     public static int max(int[] a) {
-        if(a == null || a.length == 0){
+        if (a == null || a.length == 0) {
             //throw
             throw new IllegalArgumentException("Array is null");
         }
 
         int max = a[0];
 
-        for (int i :a) {
-            if (i >= max){
+        for (int i : a) {
+            if (i >= max) {
                 max = i;
             }
         }
@@ -74,7 +73,7 @@ public final class Selector {
     public static int kmin(int[] a, int k) {
 
         //error message
-        if(a == null || k > a.length || k < 1){
+        if (a == null || k > a.length || k < 1) {
             //throw
             throw new IllegalArgumentException("Array is null");
         }
@@ -140,8 +139,8 @@ public final class Selector {
 
             int max = b[0];
 
-            for (int i :b) {
-                if (i >= max){
+            for (int i : b) {
+                if (i >= max) {
                     max = i;
                 }
             }
@@ -151,7 +150,6 @@ public final class Selector {
         //throw
         throw new IllegalArgumentException("fail");
     }
-
 
 
     /**
@@ -169,7 +167,7 @@ public final class Selector {
     public static int[] range(int[] a, int low, int high) {
 
         //error message
-        if(a == null || a.length == 0){
+        if (a == null || a.length == 0) {
             //throw
             throw new IllegalArgumentException("Array is null");
         }
@@ -177,9 +175,9 @@ public final class Selector {
         int iter = 0;
 
         //foreach iter and ensure is in bounds
-        for(int i : a) {
+        for (int i : a) {
 
-            if(i >= low && i <= high) {
+            if (i >= low && i <= high) {
                 iter++;
             }
 
@@ -190,8 +188,8 @@ public final class Selector {
         int temp = 0;
 
         //foreach iter and ensure is in bounds and add to new array
-        for(int i : a) {
-            if(i >= low && i <= high) {
+        for (int i : a) {
+            if (i >= low && i <= high) {
 
                 result[temp++] = i;
             }
@@ -211,7 +209,7 @@ public final class Selector {
     public static int ceiling(int[] a, int key) {
 
         //error message
-        if(a == null || a.length == 0){
+        if (a == null || a.length == 0) {
             //throw
             throw new IllegalArgumentException("Array is null");
         }
@@ -249,7 +247,7 @@ public final class Selector {
     public static int floor(int[] a, int key) {
 
         //error message
-        if(a == null || a.length == 0){
+        if (a == null || a.length == 0) {
 
             //throw
             throw new IllegalArgumentException("Array is null");
