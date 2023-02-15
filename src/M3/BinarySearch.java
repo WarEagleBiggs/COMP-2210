@@ -1,0 +1,29 @@
+package M3;
+
+import java.util.Arrays;
+import java.util.Comparator;
+
+/**
+ * Binary search.
+ */
+public class BinarySearch {
+
+    /**
+     * Returns the index of the first key in a[] that equals the search key, 
+     * or -1 if no such key exists. This method throws a NullPointerException
+     * if any parameter is null.
+     */
+    public static <Key> int firstIndexOf(Key[] a, Key key, Comparator<Key> comparator) {
+    return -99;
+    }
+
+    /**
+     * Returns the index of the last key in a[] that equals the search key, 
+     * or -1 if no such key exists. This method throws a NullPointerException
+     * if any parameter is null.
+     */
+    public static <Key> int lastIndexOf(Key[] a, Key key, Comparator<Key> comparator) {
+    return -99;
+    }
+
+}
