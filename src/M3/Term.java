@@ -80,7 +80,7 @@ public class Term implements Comparable<Term> {
      */
     @Override
     public String toString(){
-        return weight + "\t" + query;
+        return query + "\t" + weight;
     }
 
 }
