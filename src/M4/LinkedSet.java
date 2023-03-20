@@ -291,6 +291,10 @@ public class LinkedSet<T extends Comparable<T>> implements Set<T> {
      */
     public Set<T> union(Set<T> s){
 
+        if (s == null) {
+            throw new IllegalArgumentException("null");
+        }
+
         LinkedSet<T> result = new LinkedSet<>();
 
         for (T element : this) {
@@ -311,7 +315,31 @@ public class LinkedSet<T extends Comparable<T>> implements Set<T> {
      * @return  a set that contains all the elements of this set and the parameter set
      */
     public Set<T> union(LinkedSet<T> s){
-        return null;
+
+        if(s == null) {
+
+            throw new NullPointerException();
+        }
+
+        LinkedSet<T> returnSet = new LinkedSet<T>();
+
+        Node i = front;
+
+        while(i != null) {
+
+            returnSet.add(i.element);
+
+            i = i.next;
+        }
+
+        Iterator<T> j = s.iterator();
+
+        while(j.hasNext()) {
+
+            returnSet.add(j.next());
+        }
+
+        return returnSet;
     }
 
 
@@ -382,6 +410,11 @@ public class LinkedSet<T extends Comparable<T>> implements Set<T> {
      * @return  a set that contains elements that are in this set but not the parameter set
      */
     public Set<T> complement(Set<T> s) {
+
+        if (s == null) {
+            throw new IllegalArgumentException("null");
+        }
+
         Set<T> newSet = new LinkedSet<T>();
 
         Iterator<T> itr1 = this.iterator();
@@ -409,7 +442,19 @@ public class LinkedSet<T extends Comparable<T>> implements Set<T> {
      *            set but not the parameter set
      */
     public Set<T> complement(LinkedSet<T> s) {
-        return null;
+
+        LinkedSet result = new LinkedSet();
+
+        Node curr = front;
+
+        while (curr != null) {
+
+            if (!s.contains(curr.element)) {
+                result.add(curr.element);
+            }
+            curr = curr.next;
+        }
+        return result;
     }
 
 
@@ -513,8 +558,11 @@ public class LinkedSet<T extends Comparable<T>> implements Set<T> {
 
                 return sub;
             }
+
         };
+
     }
+
 
 
 
