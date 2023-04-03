@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.util.*;
 import java.io.FileReader;
 
@@ -60,51 +59,39 @@ public class SolutionClass implements WordSearchGame {
     public void setBoard(String[] letterArray) throws IllegalArgumentException {
 
         if (letterArray == null) {
-
             throw new IllegalArgumentException();
         }
 
-        int length = letterArray.length;
-
-        double sqrt = Math.sqrt(length);
-
-        if (sqrt != (int)sqrt) {
-
-            throw new IllegalArgumentException();
-
-        }
-        if (sqrt % 1 > 0) {
-
-            throw new IllegalArgumentException();
-        }
-
-        else {
-
-            length = (int) sqrt;
-            board = new String[length][length];
-            visited = new Boolean[length][length];
-            int count = 0;
-            for (int i = 0; i < length; i++) {
-                for (int j = 0; j < length; j++) {
-                    visited[i][j] = false;
-                    board[i][j] = letterArray[count].toLowerCase();
-                    count++;
-                }
+        int numRows = letterArray.length;
+        int numCols = letterArray[0].length();
+        for (String row : letterArray) {
+            if (row.length() != numCols) {
+                throw new IllegalArgumentException();
             }
         }
+
+        board = new String[numRows][numCols];
+        visited = new Boolean[numRows][numCols];
+
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j < numCols; j++) {
+                board[i][j] = String.valueOf(letterArray[i].charAt(j));
+                visited[i][j] = false;
+            }
+        }
+        length = numRows;
     }
 
     public String getBoard() {
         String result = "";
 
-        for (String[] s: board) {
-
-            for (String string: s) {
-
-                result = result + string;
+        for (int i = 0; i < length; i++){
+            result +=  "\n| ";
+            for (int j = 0; j < length; j++){
+                result += board[i][j] + " ";
             }
+            result += "|";
         }
-
         return result;
     }
     //TODO
@@ -120,6 +107,10 @@ public class SolutionClass implements WordSearchGame {
         }
 
         SortedSet<String> scorableWords = new TreeSet<>();
+
+        if (length == 1 && minimumWordLength > 1) {
+            return scorableWords;
+        }
 
         for (String word : lexicon) {
             if (word.length() >= minimumWordLength && isOnBoard(word).size() > 0) {
@@ -194,10 +185,9 @@ public class SolutionClass implements WordSearchGame {
             for (int col = 0; col < length; col++) {
                 if (board[row][col].equals(String.valueOf(wordToCheck.charAt(0)))) {
                     visited[row][col] = true;
-                    List<Integer> path = new ArrayList<>();
-                    if (searchBoard(wordToCheck.substring(1), row, col)) {
-                        path.add(0, row * length + col);
-                        return path;
+                    if (searchBoard(wordToCheck.substring(1), row, col, locations)) {
+                        locations.add(0, row * length + col);
+                        return locations;
                     }
                     visited[row][col] = false;
                 }
@@ -206,25 +196,21 @@ public class SolutionClass implements WordSearchGame {
 
         return locations;
     }
-    private boolean searchBoard(String remainingLetters, int row, int col) {
+    private boolean searchBoard(String remainingLetters, int row, int col, List<Integer> locations) {
 
         if (remainingLetters.length() == 0) {
-
             return true;
         }
 
         for (int r = row - 1; r <= row + 1; r++) {
-
             for (int c = col - 1; c <= col + 1; c++) {
-
                 if (r >= 0 && r < length && c >= 0 && c < length && !visited[r][c]
                         && board[r][c].equals(String.valueOf(remainingLetters.charAt(0)))) {
 
                     visited[r][c] = true;
-                    if (searchBoard(remainingLetters.substring(1), r, c)) {
-
+                    if (searchBoard(remainingLetters.substring(1), r, c, locations)) {
+                        locations.add(0, r * length + c);
                         visited[r][c] = false;
-
                         return true;
                     }
 
@@ -235,6 +221,7 @@ public class SolutionClass implements WordSearchGame {
 
         return false;
     }
+
 
 
 
